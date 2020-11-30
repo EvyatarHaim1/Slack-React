@@ -6,4 +6,5 @@ Slack - React app:
 * Responsive
 * Google User-Authentication (Firebase)
 * Styled-Components
+* CSS Variables
 * Firebase - Realtime DB & Hosting
