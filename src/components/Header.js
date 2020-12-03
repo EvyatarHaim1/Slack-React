@@ -63,6 +63,7 @@ color: white;
         border: none;
         text-align: center;
         min-width: 35vw;
+        color: white;
     } 
 }
 
