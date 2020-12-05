@@ -1,19 +1,41 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import styled from 'styled-components';
-import { useParams} from 'react-router-dom';
+import { useParams } from 'react-router-dom';
 import StarBorderOutlinedIcon from '@material-ui/icons/StarBorderOutlined';
 import InfoOutlinedIcon from '@material-ui/icons/InfoOutlined';
+import Message from './Message';
+import db from '../firebase';
 
 function Chat() {
 
     const { roomId } = useParams();
+    const [ roomDetails, setRoomDetails ] = useState(null);
+    const [ roomMessages, setRoomMessages ] = useState();
+
+    useEffect(() => {
+       if(roomId){
+           db.collection('rooms').doc(roomId).onSnapshot((snapshot) => (
+                 setRoomDetails(snapshot.data())
+                 ))
+       }
+
+       db.collection('rooms').doc(roomId)
+         .collection('messages')
+         .orderBy('timestamp', 'asc')
+         .onSnapshot( snapshot => setRoomMessages(snapshot.docs.map(doc =>doc.data())
+         ))
+    }, [roomId]);
+
+    console.log(roomId);
+    console.log(roomMessages);
+    
 
     return (
         <Div>
             <div className="chat_header">
                 <div className="chatHeader_left">
                     <h4 className="chat_channelName">
-                        <strong># general</strong>
+                        <strong>#{roomDetails?.name}</strong>
                         <StarBorderOutlinedIcon />
                     </h4>
                 </div>
@@ -24,6 +46,17 @@ function Chat() {
                      </p>
                 </div>
 
+            </div>
+
+            <div className="chat_messages">
+               {roomMessages.map(message => (
+               <Message 
+                       message={message.message}
+                       timestamp={message.timestamp}
+                       user={message.user}
+                       userImg={message.userImg}
+               />
+               ))}
             </div>
         </Div>
     )

@@ -20,8 +20,8 @@ function Sidebar() {
    const [channels, setChannels] = useState([]);
 
     useEffect(() => {
-     db.collection('rooms').onSnapshot(snapshot => (
-       setChannels(snapshot.docs.map(doc => doc.data({
+     db.collection('rooms').onSnapshot((snapshot) => (
+       setChannels(snapshot.docs.map((doc) => ({
          id: doc.id,
          name: doc.data().name,
        })
@@ -33,7 +33,7 @@ function Sidebar() {
         <Div>
             <div className="sidebar_header">
               <div className="sidebar_info">
-                <h2>clever programmer</h2>
+                <h2>JR-Devs</h2>
                 <h3>
                     <FiberManualRecordIcon />
                     Evyatar Haim
@@ -56,7 +56,6 @@ function Sidebar() {
               {channels.map(channel => (
                 <SidebarOption title={channel.name} 
                                id={channel.id}  
-                               key={channel.id}
                 />
               ))}
         </Div>

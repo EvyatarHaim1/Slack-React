@@ -6,6 +6,14 @@ import db from '../firebase';
 function SidebarOption({ Icon, title, id, addChannelOption }) {
 
     const history = useHistory();
+    
+    const selectChannel = () => {
+        if(id){
+          history.push(`/room/${id}`);
+        } else {
+            history.push(title);
+        }
+    }
 
     const addChannel = () => {
       const channelName = prompt('Please enter the channel name: ');
@@ -16,13 +24,6 @@ function SidebarOption({ Icon, title, id, addChannelOption }) {
       }
     }
 
-    const selectChannel = () => {
-        if(id){
-          history.push(`/room/${id}`);
-        } else {
-            history.push(title);
-        }
-    }
 
 
     return (
