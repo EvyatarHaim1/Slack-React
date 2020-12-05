@@ -59,8 +59,6 @@ const Div = styled.div`
    }
 
    form > button {
-       /* position: fixed;
-       bottom: 10px; */
        display: none !important;
    }
 `

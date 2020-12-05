@@ -27,7 +27,7 @@ function Login() {
     return (
         <Div>
             <div className="loginContainer">
-                <img src="https://assets.stickpng.com/images/5cb480cd5f1b6d3fbadece79.png" alt="slackLogo" />
+                <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/b/b9/Slack_Technologies_Logo.svg/330px-Slack_Technologies_Logo.svg.png" alt="slackLogo" />
                 <h1> Sign in to JR.Devs</h1>
                 <p>https://www.jrdevjobs.com/</p>
                 <Button onClick={signIn}> Sign In With Google </Button>
