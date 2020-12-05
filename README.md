@@ -10,4 +10,4 @@ Slack - React app:
 * CSS Variables
 * Firebase - Realtime DB & Hosting
 
-
+![alt text](https://github.com/EvyatarHaim1/Slack-React/blob/main/src/screenView.png)
