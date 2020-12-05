@@ -1,15 +1,28 @@
 import React from 'react';
 import { Button } from '@material-ui/core';
 import styled from 'styled-components';
+import { auth, provider } from '../firebase';
 
 function Login() {
+
+   const signIn = () => {
+       auth
+           .signInWithPopup(provider)
+           .then( result => {
+               console.log(result);
+           })
+           .catch(error => {
+               alert(error.message)
+           })
+   }
+
     return (
         <Div>
             <div className="loginContainer">
                 <img src="https://assets.stickpng.com/images/5cb480cd5f1b6d3fbadece79.png" alt="slackLogo" />
                 <h1> Sign in to JR.Devs</h1>
                 <p>https://www.jrdevjobs.com/</p>
-                <Button> Sign In With Google </Button>
+                <Button onClick={signIn}> Sign In With Google </Button>
             </div>
         </Div>
     )
@@ -18,6 +31,10 @@ function Login() {
 export default Login;
 
 const Div = styled.div`
+height: 100vh;
+background-color: #f8f8f8;
+display: grid;
+place-items: center;
 
 .loginContainer{
     padding: 100px;
