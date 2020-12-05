@@ -70,6 +70,7 @@ const Div = styled.div`
   border-top: 1px solid #4927db;
   max-width: 260px;
   color: white;
+  flex: 0.3;
 
   hr{
     margin-top:10px;
