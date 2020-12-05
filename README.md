@@ -1,6 +1,7 @@
 Slack - React app:
 
-* App URL -
+* App URL -https://slack-evyatar.web.app/
+* React-Context-API - state managment
 * Material-UI
 * Flexbox
 * Responsive
@@ -8,3 +9,5 @@ Slack - React app:
 * Styled-Components
 * CSS Variables
 * Firebase - Realtime DB & Hosting
+
+
